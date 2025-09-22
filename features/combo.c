@@ -144,7 +144,7 @@ combo_t key_combos[] = {
     [U_CIRCUMFLEX] = COMBO(combo_u_circumflex, SS_U_CIRCUMFLEX),
     [U_GRAVE] = COMBO(combo_u_grave, SS_U_GRAVE),
     [O_CIRCUMFLEX] = COMBO(combo_o_circumflex, SS_O_CIRCUMFLEX),
-    [C_CEDI] = COMBO(combo_c_cedi, LOPT(KC_C)),
+    [C_CEDI] = COMBO(combo_c_cedi, SS_C_CEDI),
 
     [COMBO_CAPS] = COMBO(combo_caps, KC_CAPS),
     [COMBO_QUOTE] = COMBO(combo_quote, KC_QUOTE),
@@ -172,7 +172,7 @@ combo_t key_combos[] = {
     [COMBO_TILDE] = COMBO(combo_tilde, KC_TILD),
     [COMBO_BCKSLASH] = COMBO(combo_bckslash, KC_BSLS),
 
-    [COMBO_QUIT] = COMBO(combo_quit, LGUI(KC_Q)),
+    [COMBO_QUIT] = COMBO(combo_quit, LGUI(KC_W)),
     [COMBO_THE] = COMBO(combo_the, SS_THE),
     [COMBO_AND] = COMBO(combo_and, SS_AND),
 

@@ -264,12 +264,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LEFT,         KC_UP,          KC_DOWN,    KC_RGHT,    TD(TD_RECTANGLE),  MS_BTN3,   MS_WHLL,    MS_WHLU,    MS_WHLD,    MS_WHLR,
                                                          KC_TRNS,    KC_NO,             MS_BTN2,   MS_BTN1
         ),
-        [_MOUSE2] = LAYOUT_split_3x6_3(
-            KC_DEL,  KC_NO,    KC_F2,    KC_F12,   KC_F11,         KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
-            KC_LCTL, KC_LOPT,  KC_NO,    KC_NO,    KC_PSCR,        KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
-            KC_TRNS, KC_BTN6,  KC_BTN2,  KC_BTN1,  KC_NO,          KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
-                                      KC_TRNS, KC_TRNS,    KC_NO,         KC_BTN2,   KC_BTN1, KC_NO
-        ),
+    [_MOUSE2] = LAYOUT(
+        KC_DEL,  KC_NO,    KC_F2,    KC_F12,   KC_F11,         KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
+        KC_LCTL, KC_LOPT,  KC_NO,    KC_NO,    KC_PSCR,        KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
+        KC_TRNS, KC_BTN6,  KC_BTN2,  KC_BTN1,  KC_NO,          KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
+                                    KC_TRNS,    KC_NO,         KC_BTN2,   KC_BTN1
+    ),
 	[_NAV] = LAYOUT(
         LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_Y),      KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_LCTL, KC_LOPT, KC_LGUI,  KC_LSFT, LCTL(KC_A),                 KC_NO, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
