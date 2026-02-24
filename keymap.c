@@ -37,7 +37,14 @@ enum custom_keys {
         SS_U_GRAVE,
         SS_C_CEDI,
     SS_END,
+
+    KC_MEGA_CLICK,
 };
+
+// Mega Click
+static bool mega_click_active = false;
+static uint16_t mega_click_timer = 0;
+#define MEGA_CLICK_INTERVAL 100
 
 // Tap Dance
 void tap_dance_tap_hold_layer_finished(tap_dance_state_t *state, void *user_data) {
@@ -238,7 +245,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
 
+    // MEGA CLICK
+    if (keycode == KC_MEGA_CLICK) {
+        if (record->event.pressed) {
+            mega_click_active = true;
+            mega_click_timer = timer_read();
+            tap_code(KC_BTN1);
+        } else {
+            mega_click_active = false;
+        }
+        return false;
+    }
+
     return true;
+}
+
+void matrix_scan_user(void) {
+    if (mega_click_active && timer_elapsed(mega_click_timer) >= MEGA_CLICK_INTERVAL) {
+        mega_click_timer = timer_read();
+        tap_code(KC_BTN1);
+    }
 }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -265,7 +291,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MOUSE2] = LAYOUT(
         KC_DEL,  KC_NO,    KC_F2,    KC_F12,   KC_F11,         KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
         KC_LCTL, KC_LOPT,  KC_NO,    KC_NO,    KC_PSCR,        KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
-        KC_TRNS, KC_BTN6,  KC_BTN2,  KC_BTN1,  KC_NO,          KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
+        KC_TRNS, KC_BTN6,  KC_BTN2,  KC_BTN1,  KC_MEGA_CLICK,          KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
                                     KC_TRNS,    KC_NO,         KC_BTN2,   KC_BTN1
     ),
 	[_NAV] = LAYOUT(
