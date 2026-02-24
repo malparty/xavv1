@@ -44,7 +44,7 @@ enum custom_keys {
 // Mega Click
 static bool mega_click_active = false;
 static uint16_t mega_click_timer = 0;
-#define MEGA_CLICK_INTERVAL 100
+#define MEGA_CLICK_INTERVAL 50
 
 // Tap Dance
 void tap_dance_tap_hold_layer_finished(tap_dance_state_t *state, void *user_data) {
